@@ -1,0 +1,154 @@
+<table border="1">
+    <caption>List of relations</caption>
+    <tr>
+      <th align="center">Schema</th>
+      <th align="center">Name</th>
+      <th align="center">Type</th>
+      <th align="center">Owner</th>
+    </tr>
+    <tr valign="top">
+      <td align="left">public</td>
+      <td align="left">articles</td>
+      <td align="left">table</td>
+      <td align="left">vagrant</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">public</td>
+      <td align="left">authors</td>
+      <td align="left">table</td>
+      <td align="left">vagrant</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">public</td>
+      <td align="left">log</td>
+      <td align="left">table</td>
+      <td align="left">vagrant</td>
+    </tr>
+  </table>
+  <p>(3 rows)<br />
+  </p>
+  
+
+<table border="1">
+    <caption>Table &quot;public.articles&quot;</caption>
+    <tr>
+      <th align="center">Column</th>
+      <th align="center">Type</th>
+      <th align="center">Modifiers</th>
+    </tr>
+    <tr valign="top">
+      <td align="left">author</td>
+      <td align="left">integer</td>
+      <td align="left">not null</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">title</td>
+      <td align="left">text</td>
+      <td align="left">not null</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">slug</td>
+      <td align="left">text</td>
+      <td align="left">not null</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">lead</td>
+      <td align="left">text</td>
+      <td align="left">&nbsp; </td>
+    </tr>
+    <tr valign="top">
+      <td align="left">body</td>
+      <td align="left">text</td>
+      <td align="left">&nbsp; </td>
+    </tr>
+    <tr valign="top">
+      <td align="left">time</td>
+      <td align="left">timestamp with time zone</td>
+      <td align="left">default now()</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">id</td>
+      <td align="left">integer</td>
+      <td align="left">not null default nextval('articles_id_seq'::regclass)</td>
+    </tr>
+  </table>
+  <p>Indexes:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;articles_pkey&quot; PRIMARY KEY, btree (id)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;articles_slug_key&quot; UNIQUE CONSTRAINT, btree (slug)<br />
+  Foreign-key constraints:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;articles_author_fkey&quot; FOREIGN KEY (author) REFERENCES authors(id)<br />
+  </p>
+  
+
+  <table border="1">
+    <caption>Table &quot;public.authors&quot;</caption>
+    <tr>
+      <th align="center">Column</th>
+      <th align="center">Type</th>
+      <th align="center">Modifiers</th>
+    </tr>
+    <tr valign="top">
+      <td align="left">name</td>
+      <td align="left">text</td>
+      <td align="left">not null</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">bio</td>
+      <td align="left">text</td>
+      <td align="left">&nbsp; </td>
+    </tr>
+    <tr valign="top">
+      <td align="left">id</td>
+      <td align="left">integer</td>
+      <td align="left">not null default nextval('authors_id_seq'::regclass)</td>
+    </tr>
+  </table>
+  <p>Indexes:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;authors_pkey&quot; PRIMARY KEY, btree (id)<br />
+  Referenced by:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;TABLE &quot;articles&quot; CONSTRAINT &quot;articles_author_fkey&quot; FOREIGN KEY (author) REFERENCES authors(id)<br />
+  </p>
+
+
+  <table border="1">
+    <caption>Table &quot;public.log&quot;</caption>
+    <tr>
+      <th align="center">Column</th>
+      <th align="center">Type</th>
+      <th align="center">Modifiers</th>
+    </tr>
+    <tr valign="top">
+      <td align="left">path</td>
+      <td align="left">text</td>
+      <td align="left">&nbsp; </td>
+    </tr>
+    <tr valign="top">
+      <td align="left">ip</td>
+      <td align="left">inet</td>
+      <td align="left">&nbsp; </td>
+    </tr>
+    <tr valign="top">
+      <td align="left">method</td>
+      <td align="left">text</td>
+      <td align="left">&nbsp; </td>
+    </tr>
+    <tr valign="top">
+      <td align="left">status</td>
+      <td align="left">text</td>
+      <td align="left">&nbsp; </td>
+    </tr>
+    <tr valign="top">
+      <td align="left">time</td>
+      <td align="left">timestamp with time zone</td>
+      <td align="left">default now()</td>
+    </tr>
+    <tr valign="top">
+      <td align="left">id</td>
+      <td align="left">integer</td>
+      <td align="left">not null default nextval('log_id_seq'::regclass)</td>
+    </tr>
+  </table>
+  <p>Indexes:<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;log_pkey&quot; PRIMARY KEY, btree (id)<br />
+  </p>
+  
