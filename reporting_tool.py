@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#! /usr/bin/env python
 
 import psycopg2
 
@@ -13,8 +13,10 @@ def top_three():
     results = c.fetchall()
     db.close()
 
+    print('Top three articles of all time: ')
+    
     for item in results:
-        print('\"{item[0]}\" - {item[1]} views'.format(item[0],item[1]))
+        print('\"{}\" - {} views'.format(item[0], item[1]))
 
 if __name__ == '__main__':
     top_three()
