@@ -9,11 +9,12 @@ def top_three():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
 
-    c.execute("select path, count(*) from log where status = '200 OK' and path != '/' group by log.path;")
+    c.execute("select title, count(*) as num from articles join log on log.path like concat('%', articles.slug) group by articles.title order by num desc limit 3")
     results = c.fetchall()
     db.close()
 
-    for article in results:
-        print('{} -  {} views'.format(article[0], article[1]))
+    for item in results:
+        print('\"{item[0]}\" - {item[1]} views'.format(item[0],item[1]))
 
-top_three()
+if __name__ == '__main__':
+    top_three()
