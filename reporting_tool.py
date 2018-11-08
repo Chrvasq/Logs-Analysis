@@ -41,7 +41,25 @@ def popular_article_authors():
 
     print('\n')
 
+def error_report():
+    print('Processing third report...\n')
+
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+
+    c.execute("select t3.time::date, t3.error_percentage from (select t1.time::date, (t1.total / t2.total) * 100 as error_percentage from (select a.time::date, sum(a.num) as total from (select status, time::date, count(*) as num from log where status != '200 OK' group by log.status, log.time::date order by status, time) as a group by a.time::date order by time) as t1, (select b.time::date, sum(b.num) as total from (select status, time::date, count(*) as num from log group by log.status, log.time::date order by status, time) as b group by b.time::date order by time) as t2 where t1.time = t2.time) as t3 where error_percentage > 1;")
+    results = c.fetchall()
+    db.close()
+
+    print('Failed Requests > 1%: \n')
+
+    for item in results:
+        print('{} - {} errors'.format(item[0], item[1]))
+
+    print('\n End of report.')
+
 
 if __name__ == '__main__':
     top_three()
     popular_article_authors()
+    error_report()
