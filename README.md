@@ -5,6 +5,6 @@ Three questions are answered by the query results. The queries take time to proc
 the user know the report is processing.
 
 ## How to Use Program
-'git clone https://github.com/Chrvasq/Logs-Analysis.git'
+'git clone' https://github.com/Chrvasq/Logs-Analysis.git
 
 'python reporting_tool.py'
