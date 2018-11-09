@@ -13,7 +13,7 @@ def open_conn():
         db = psycopg2.connect(database=DBNAME)
         c = db.cursor()
         return [db, c]
-    except:
+    except psycopg2.Error:
         print('Unable to connect to database.')
 
 
