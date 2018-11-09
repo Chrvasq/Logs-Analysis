@@ -20,14 +20,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 Software and files needed and how to install them:
 
-```
-Python 2.7.15 - https://www.python.org/downloads/release/python-2715/
-VirtualBox 5.1 - https://www.virtualbox.org/wiki/Download_Old_Builds_5_1
-Vagrant 2.2.0 - https://www.vagrantup.com/
-VM Configuration - https://github.com/udacity/fullstack-nanodegree-vm
-News Database - https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip
-reporting_tool.py - https://github.com/Chrvasq/Logs-Analysis/tree/master
-```
+**[Python 2.7.15]**(https://www.python.org/downloads/release/python-2715/)
+**[VirtualBox 5.1]**(https://www.virtualbox.org/wiki/Download_Old_Builds_5_1)
+**[Vagrant 2.2.0]**(https://www.vagrantup.com/)
+**[VM Configuration]**(https://github.com/udacity/fullstack-nanodegree-vm)
+**[News Database]**(https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+**[reporting_tool.py]**(https://github.com/Chrvasq/Logs-Analysis/tree/master)
 
 ### Installing
 
@@ -51,11 +49,11 @@ Vagrant is the software that configures the VM and lets you share files between 
 
 There are a couple of different ways you can download the VM configuration.
 
-You can download and unzip this file: [FSND-Virtual-Machine.zip](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/April/5acfbfa3_fsnd-virtual-machine/fsnd-virtual-machine.zip) This will give you a directory called FSND-Virtual-Machine. It may be located inside your Downloads folder.
+You can download and unzip this file: [FSND-Virtual-Machine.zip](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/April/5acfbfa3_fsnd-virtual-machine/fsnd-virtual-machine.zip) This will give you a directory called `FSND-Virtual-Machine`. It may be located inside your Downloads folder.
 
 Alternately, you can use Github to fork and clone the repository https://github.com/udacity/fullstack-nanodegree-vm.
 
-Either way, you will end up with a new directory containing the VM files. Change to this directory in your terminal with cd. Inside, you will find another directory called vagrant. Change directory to the vagrant directory.
+Either way, you will end up with a new directory containing the VM files. Change to this directory in your terminal with `cd`. Inside, you will find another directory called `vagrant`. Change directory to the `vagrant` directory.
 
 4. **Start the virtual machine**
 
@@ -65,9 +63,9 @@ When `vagrant up` is finished running, you will get your shell prompt back. At t
 
 5. **Download the news database and load data**
 
-Download the data [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip). You will need to unzip this file after downloading it. The file inside is called newsdata.sql. Put this file into the `vagrant` directory, which is shared with your virtual machine.
+Download the data [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip). You will need to unzip this file after downloading it. The file inside is called `newsdata.sql`. Put this file into the `vagrant` directory, which is shared with your virtual machine.
 
-To build the reporting tool, you'll need to load the site's data into your local database.
+You'll need to load the site's data into your local database.
 
 To load the data, `cd` into the `vagrant` directory and use the command `psql -d news -f newsdata.sql`.
 
@@ -94,18 +92,18 @@ Processing first report...
 
 Top three articles of all time:
 
-"Candidate is jerk, alleges rival" - 338647 views
-"Bears love berries, alleges bear" - 253801 views
-"Bad things gone, say good people" - 170098 views
+"Candidate is jerk, alleges rival" - 33,8647 views
+"Bears love berries, alleges bear" - 25,3801 views
+"Bad things gone, say good people" - 17,0098 views
 
 Processing second report...
 
 Article authors ranked by views:
 
-Ursula La Multa - 507594 views
-Rudolf von Treppenwitz - 423457 views
-Anonymous Contributor - 170098 views
-Markoff Chaney - 84557 views
+Ursula La Multa - 507,594 views
+Rudolf von Treppenwitz - 423,457 views
+Anonymous Contributor - 170,098 views
+Markoff Chaney - 84,557 views
 
 Processing third report...
 
