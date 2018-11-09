@@ -20,12 +20,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 Software and files needed and how to install them:
 
-**[Python 2.7.15]**(https://www.python.org/downloads/release/python-2715/)
-**[VirtualBox 5.1]**(https://www.virtualbox.org/wiki/Download_Old_Builds_5_1)
-**[Vagrant 2.2.0]**(https://www.vagrantup.com/)
-**[VM Configuration]**(https://github.com/udacity/fullstack-nanodegree-vm)
-**[News Database]**(https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
-**[reporting_tool.py]**(https://github.com/Chrvasq/Logs-Analysis/tree/master)
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)
+* [VirtualBox 5.1](https://www.virtualbox.org/wiki/Download_Old_Builds_5_1)
+* [Vagrant 2.2.0](https://www.vagrantup.com/)
+* [VM Configuration](https://github.com/udacity/fullstack-nanodegree-vm)
+* [News Database](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+* [reporting_tool.py](https://github.com/Chrvasq/Logs-Analysis/tree/master)
 
 ### Installing
 
@@ -117,7 +117,7 @@ End of report.
 
 ## Authors
 
-* **[Chris Vasquez]**(https://github.com/Chrvasq)
+* [Chris Vasquez](https://github.com/Chrvasq)
 
 ## Acknowledgments
 
