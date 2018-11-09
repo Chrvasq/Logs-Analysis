@@ -35,7 +35,7 @@ def top_three():
     print('Top three articles of all time: \n')
 
     for item in results:
-        print('\"{}\" - {} views'.format(item[0], item[1]))
+        print('\"{}\" - {:,} views'.format(item[0], item[1]))
 
 
 def popular_article_authors():
@@ -54,7 +54,7 @@ def popular_article_authors():
     print('Article authors ranked by views: \n')
 
     for item in results:
-        print('{} - {} views'.format(item[0], item[1]))
+        print('{} - {:,} views'.format(item[0], item[1]))
 
 
 def error_report():
