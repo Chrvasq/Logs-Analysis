@@ -6,12 +6,24 @@ from datetime import datetime
 DBNAME = 'news'
 
 
-def top_three():
-    print('\n')
-    print('Processing first report...\n')
+def open_conn():
+    global db, c
 
-    db = psycopg2.connect(database=DBNAME)
-    c = db.cursor()
+    try:
+        db = psycopg2.connect(database=DBNAME)
+        c = db.cursor()
+        return [db, c]
+    except:
+        print('Unable to connect to database.')
+
+
+def close_conn():
+    db.close()
+    print('End of report.\n')
+
+
+def top_three():
+    print('\nProcessing first report...\n')
 
     c.execute(
         "select title, count(*) as num from articles join log on"
@@ -19,21 +31,15 @@ def top_three():
         " articles.title order by num desc limit 3"
         )
     results = c.fetchall()
-    db.close()
 
     print('Top three articles of all time: \n')
 
     for item in results:
         print('\"{}\" - {} views'.format(item[0], item[1]))
 
-    print('\n')
-
 
 def popular_article_authors():
-    print('Processing second report...\n')
-
-    db = psycopg2.connect(database=DBNAME)
-    c = db.cursor()
+    print('\nProcessing second report...\n')
 
     c.execute(
         "select name, sum(article_views.num) as total_views from authors join"
@@ -44,21 +50,15 @@ def popular_article_authors():
         " desc;"
         )
     results = c.fetchall()
-    db.close()
 
     print('Article authors ranked by views: \n')
 
     for item in results:
         print('{} - {} views'.format(item[0], item[1]))
 
-    print('\n')
-
 
 def error_report():
-    print('Processing third report...\n')
-
-    db = psycopg2.connect(database=DBNAME)
-    c = db.cursor()
+    print('\nProcessing third report...\n')
 
     c.execute(
         "select t3.time::date, t3.error_percentage from (select t1.time::date,"
@@ -72,7 +72,6 @@ def error_report():
         " t1.time = t2.time) as t3 where error_percentage > 1;"
         )
     results = c.fetchall()
-    db.close()
 
     date = results[0][0]
     percent = round(results[0][1], 2)
@@ -81,10 +80,10 @@ def error_report():
 
     print(date.strftime('%B %d, %Y - ') + str(percent) + '% ' + 'errors\n')
 
-    print('End of report.\n')
-
 
 if __name__ == '__main__':
+    open_conn()
     top_three()
     popular_article_authors()
     error_report()
+    close_conn()
